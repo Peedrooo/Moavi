@@ -1,0 +1,3 @@
+# ignora cache do pytest
+.pytest_cache
+__pycache__
