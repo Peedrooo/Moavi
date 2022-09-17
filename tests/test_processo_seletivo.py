@@ -1,4 +1,10 @@
-from processo_seletivo import *
+from funcoes.processo_seletivo import *
+import os
+from pathlib import Path
+
+p = Path(os.getcwd())
+
+path_data = str(p) + "\\data\\workload.csv"
 
 # Testes para a função frequency_sort
 def test_frequency_sort1():
@@ -36,8 +42,19 @@ def test_collapse_intervals2():
 def test_collapse_intervals3():
     collapse_intervals([3, 5, 6, 7, 9, 11, 12, 13]) == '3,5-7,9,11-13'
 
-# def test_collapse_intervals4():
-#     collapse_intervals([]) == ''
+def test_collapse_intervals4():
+    collapse_intervals([]) == ''
 
 def test_collapse_intervals5():
     collapse_intervals(range(1, 1000001)) == '1-1000000'
+
+# Testes para a função calc_employee_dist
+def test_calc_employee_dist():
+    calc_employee_dist(path_data) == [
+        1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+        1,1,1,1,1,1,1,2,2,2,2,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,
+        2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,2,2,2,2,3,3,3,3,3,2,2,2,
+        2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,2,2,2,
+        2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
+        2,2,2,2,2,2,2,1,1,1
+    ]

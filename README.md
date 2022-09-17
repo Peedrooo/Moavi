@@ -11,5 +11,5 @@ pip install -r requirements.txt
 ## Test functions
 
 ```bash
-pytest
+pytest -v
 ```
