@@ -1,8 +1,9 @@
 import os
 from pathlib import Path
 
-from funcoes.selective_process import (calc_employee_dist, collapse_intervals,
-                                       frequency_sort, reverse_vowels)
+from funcoes.selective_process import (
+    calc_employee_dist, collapse_intervals, frequency_sort, reverse_vowels
+)
 
 p = Path(os.getcwd())
 
