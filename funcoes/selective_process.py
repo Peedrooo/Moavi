@@ -1,8 +1,8 @@
 import pandas as pd
 
+
 def frequency_sort(items):
     """Sorts a list of items by number of occurrences"""
-    
     df = pd.DataFrame(items, columns=['items'])
     df['count'] = df.groupby('items')['items'].transform('count')
     df = df.sort_values(['count', 'items'], ascending=[False, True])
@@ -11,7 +11,6 @@ def frequency_sort(items):
 
 def reverse_vowels(text):
     """Reverses the vowels in a string"""
-    
     vowels = 'aeiou'
     text = list(text)
     i, j = 0, len(text) - 1
@@ -26,9 +25,11 @@ def reverse_vowels(text):
             j -= 1
     return ''.join(text)
 
+
 def collapse_intervals(items):
-    """Collapses a list of intervals into a list of non-overlapping intervals"""
-    
+    """
+    Collapses a list of intervals into a list of non-overlapping intervals
+    """
     try:
         result = []
         start = items[0]
@@ -51,9 +52,9 @@ def collapse_intervals(items):
     except IndexError:
         return ''
 
+
 def calc_employee_dist(filepath):
     """Calculates the distribution of employees by time zone"""
-
     def convert(hora):
         """Converts a string in the format 'HH:MM' to integer in minutes"""
         hora = hora.split(':')
@@ -70,8 +71,8 @@ def calc_employee_dist(filepath):
         lista = list(map(convert, employ))
         flow.append(lista)
     for hour in flow:
-        for c in range(hour[0],hour[1]):
+        for c in range(hour[0], hour[1]):
             escala[c] += 1
-        for c in range(hour[2],hour[3]):
-            escala[c]+=1
+        for c in range(hour[2], hour[3]):
+            escala[c] += 1
     return escala
