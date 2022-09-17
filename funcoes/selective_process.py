@@ -73,6 +73,8 @@ def calc_employee_dist(filepath):
     for hour in flow:
         for c in range(hour[0], hour[1]):
             escala[c] += 1
+        if hour[3] == 0:
+            hour[3] = 144
         for c in range(hour[2], hour[3]):
             escala[c] += 1
     return escala
